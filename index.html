@@ -9,7 +9,7 @@
     <div ng-controller="MainController" class="container">
       <header>
         <h1 class="title">Reddit Clone</h1>
-        <button type="button" ng-click="newPost()">submit post</button>
+        <button type="button" ng-click="newPost()">+submit post</button>
         <input type="text" ng-model="search" placeholder="Search">
         <select ng-model="sort.selection">
           <option value="">sort by votes</option>
@@ -18,14 +18,31 @@
           <option value="title">title</option>
         </select>
       </header>
-      <section class="add-post">
-        <form ng-submit="addPost()">
-                    <input name="name" type="text" ng-model="name" placeholder="name">
-                    <input name="email" type="text" ng-model="email" placeholder="email">
-                    <input name="phone" type="text" ng-model="phone" placeholder="phone">
-                    <input type="submit" value="Submit">
-        </form>
-      </section>
+      <div class="content">
+        <section class="add-post">
+          <form ng-submit="addPost()" ng-show="showNewPost">
+                      <h5>Title</h5>
+                      <input name="title" type="text" ng-model="title" placeholder="title">
+                      <h5>Author</h5>
+                      <input name="author" type="text" ng-model="author" placeholder="author">
+                      <h5>Image URL</h5>
+                      <input name="image" type="text" ng-model="image" placeholder="image URL">
+                      <h5>Description</h5>
+                      <input name="description" type="text" ng-model="description" placeholder="description">
+                      <input type="submit" value="Submit">
+          </form>
+        </section>
+        <section class="posts">
+          <div class="post"  ng-repeat-start="post in content">
+            <img class="img" ng-src={{post.image}} alt="awesome pic" />
+            <p>{{post.title}}</p>
+            <p>{{post.author}}</p>
+            <p>{{post.description}}</p>
+          </div>
+          <a  ng-repeat-end></a>
+        </section>
+      </div>
+
     </div>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
     <script type="text/javascript" src="controllers.js"></script>
