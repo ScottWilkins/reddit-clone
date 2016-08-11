@@ -6,8 +6,26 @@
     <title>readit</title>
   </head>
   <body>
-    <div ng-controller="test">
-      {{test}}
+    <div ng-controller="MainController" class="container">
+      <header>
+        <h1 class="title">Reddit Clone</h1>
+        <button type="button" ng-click="newPost()">submit post</button>
+        <input type="text" ng-model="search" placeholder="Search">
+        <select ng-model="sort.selection">
+          <option value="">sort by votes</option>
+          <option value="votes">votes</option>
+          <option value="date">date</option>
+          <option value="title">title</option>
+        </select>
+      </header>
+      <section class="add-post">
+        <form ng-submit="addPost()">
+                    <input name="name" type="text" ng-model="name" placeholder="name">
+                    <input name="email" type="text" ng-model="email" placeholder="email">
+                    <input name="phone" type="text" ng-model="phone" placeholder="phone">
+                    <input type="submit" value="Submit">
+        </form>
+      </section>
     </div>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
     <script type="text/javascript" src="controllers.js"></script>

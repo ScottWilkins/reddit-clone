@@ -1,3 +1,21 @@
 body {
-  background-color: yellow
+  margin: 0;
+  padding: 0;
+}
+.container {
+  height: 100vh;
+  width: 100vw;
+}
+header {
+  color: #777;
+  background-color: #eee;
+  display: flex;
+  align-items: center;
+}
+.title {
+  font-size: 18px;
+  margin: 5px 10px 5px 5px;
+}
+header > button, header > input{
+  margin-right: 9px
 }
