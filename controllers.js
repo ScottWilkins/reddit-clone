@@ -1,4 +1,4 @@
-var app = angular.module('app', []);
+var app = angular.module('app', ['angularMoment']);
 
 app.controller('MainController', function($scope) {
   $scope.showNewPost = false;
@@ -20,6 +20,18 @@ app.controller('MainController', function($scope) {
     $scope.showNewPost = true
   }
   $scope.addPost = function(){
-    $scope.showNewPost = false
+    $scope.time = new Date();
+    console.log($scope.time.now);
+    $scope.content.push({title: $scope.title,
+    author: $scope.author,
+    image: $scope.image,
+    description: $scope.description,
+    time: $scope.time
+  })
+    $scope.showNewPost = false;
+    $scope.title = '';
+    $scope.author = '';
+    $scope.description = '';
+    $scope.image = '';
   }
 })

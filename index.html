@@ -2,6 +2,7 @@
 <html ng-app="app">
   <head>
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
     <meta charset="utf-8">
     <title>readit</title>
   </head>
@@ -35,9 +36,12 @@
         <section class="posts">
           <div class="post"  ng-repeat-start="post in content">
             <img class="img" ng-src={{post.image}} alt="awesome pic" />
-            <p>{{post.title}}</p>
-            <p>{{post.author}}</p>
-            <p>{{post.description}}</p>
+            <div class="post-text">
+              <p class="post-title">{{post.title}}| <i class="fa fa-arrow-up"></i> <i class="fa fa-arrow-down"></i> 0</p>
+              <p class="byLine">By {{post.author}}</p>
+              <p>{{post.description}}</p>
+              <p><i class="fa fa-calendar"></i> <time am-time-ago="{{time}}"></time> | <i class="fa fa-comment"></i> comment | <i class="fa fa-pencil"></i> add comment</p>
+            </div>
           </div>
           <a  ng-repeat-end></a>
         </section>
@@ -46,5 +50,7 @@
     </div>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
     <script type="text/javascript" src="controllers.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-moment/0.9.0/angular-moment.min.js"></script>
   </body>
 </html>

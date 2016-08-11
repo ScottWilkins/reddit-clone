@@ -39,12 +39,27 @@ form {
 }
 .post {
   display: flex;
-  background-color: gray;
+  background-color: #eee;
   width: 100%;
-  margin: 10px
+  margin: 10px;
+  min-height: 220px;
 }
 .img {
   width:30%;
+  max-width: 200px;
   max-height:200px;
   margin: 10px
+}
+.posts {
+  width: 90%;
+}
+.post-text {
+  color: #555;
+  width: 75%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.byLine {
+  align-self: flex-end;
 }
