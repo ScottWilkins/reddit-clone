@@ -29,6 +29,7 @@ app.controller('MainController', function($scope) {
     description: $scope.description,
     time: $scope.time
   })
+    console.log($scope.content);
     $scope.showNewPost = false;
     $scope.title = '';
     $scope.author = '';
@@ -36,13 +37,13 @@ app.controller('MainController', function($scope) {
     $scope.image = '';
   }
   $scope.addCommentShow = function(){
-    console.log(this);
-    $scope.showCommentForm = true;
+    this.showCommentForm = !this.showCommentForm;
   };
   $scope.addComment = function(){
-    $scope.showCommentForm = false;
-    $scope.comments.push({author: $scope.CommentAuthor, text: $scope.text})
-    $scope.CommentAuthor = '';
-    $scope.text = '';
+    this.showCommentForm = false;
+    $scope.comments.push({author: this.commentAuthor, text: this.text})
+    this.commentAuthor = '';
+    this.text = '';
+    console.log($scope.comments);
   }
 })

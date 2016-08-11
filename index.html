@@ -43,9 +43,9 @@
               <p><i class="fa fa-calendar"></i> <time am-time-ago="{{time}}"></time> | <i class="fa fa-comment"></i> comment | <i class="fa fa-pencil"></i> <span ng-click="addCommentShow()">add comment</span></p>
               <form ng-submit="addComment()" ng-show="showCommentForm">
                           <h5>Author</h5>
-                          <input name="CommentAuthor" type="text" ng-model="CommentAuthor" required placeholder="Author">
+                          <input name="commentAuthor" type="text" ng-model="commentAuthor" required placeholder="Author">
                           <h5>Text</h5>
-                          <input name="Text" type="text" ng-model="Text" required placeholder="Text">
+                          <input name="Text" type="text" ng-model="text" required placeholder="Text">
                           <input type="submit" value="Submit">
               </form>
             </div>
