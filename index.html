@@ -23,13 +23,13 @@
         <section class="add-post">
           <form ng-submit="addPost()" ng-show="showNewPost">
                       <h5>Title</h5>
-                      <input name="title" type="text" ng-model="title" placeholder="title">
+                      <input name="title" type="text" ng-model="title" required placeholder="title">
                       <h5>Author</h5>
-                      <input name="author" type="text" ng-model="author" placeholder="author">
+                      <input name="author" type="text" ng-model="author" required placeholder="author">
                       <h5>Image URL</h5>
-                      <input name="image" type="text" ng-model="image" placeholder="image URL">
+                      <input name="image" type="text" ng-model="image" required placeholder="image URL">
                       <h5>Description</h5>
-                      <input name="description" type="text" ng-model="description" placeholder="description">
+                      <input name="description" type="text" ng-model="description" required placeholder="description">
                       <input type="submit" value="Submit">
           </form>
         </section>
@@ -40,7 +40,14 @@
               <p class="post-title">{{post.title}}| <i class="fa fa-arrow-up"></i> <i class="fa fa-arrow-down"></i> 0</p>
               <p class="byLine">By {{post.author}}</p>
               <p>{{post.description}}</p>
-              <p><i class="fa fa-calendar"></i> <time am-time-ago="{{time}}"></time> | <i class="fa fa-comment"></i> comment | <i class="fa fa-pencil"></i> add comment</p>
+              <p><i class="fa fa-calendar"></i> <time am-time-ago="{{time}}"></time> | <i class="fa fa-comment"></i> comment | <i class="fa fa-pencil"></i> <span ng-click="addCommentShow()">add comment</span></p>
+              <form ng-submit="addComment()" ng-show="showCommentForm">
+                          <h5>Author</h5>
+                          <input name="CommentAuthor" type="text" ng-model="CommentAuthor" required placeholder="Author">
+                          <h5>Text</h5>
+                          <input name="Text" type="text" ng-model="Text" required placeholder="Text">
+                          <input type="submit" value="Submit">
+              </form>
             </div>
           </div>
           <a  ng-repeat-end></a>

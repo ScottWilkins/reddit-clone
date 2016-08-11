@@ -2,6 +2,8 @@ var app = angular.module('app', ['angularMoment']);
 
 app.controller('MainController', function($scope) {
   $scope.showNewPost = false;
+  $scope.showCommentForm = false;
+  $scope.comments = [];
   $scope.content = [
     {title: "very bad day",
     author: "scotty the forgetful",
@@ -21,7 +23,6 @@ app.controller('MainController', function($scope) {
   }
   $scope.addPost = function(){
     $scope.time = new Date();
-    console.log($scope.time.now);
     $scope.content.push({title: $scope.title,
     author: $scope.author,
     image: $scope.image,
@@ -33,5 +34,15 @@ app.controller('MainController', function($scope) {
     $scope.author = '';
     $scope.description = '';
     $scope.image = '';
+  }
+  $scope.addCommentShow = function(){
+    console.log(this);
+    $scope.showCommentForm = true;
+  };
+  $scope.addComment = function(){
+    $scope.showCommentForm = false;
+    $scope.comments.push({author: $scope.CommentAuthor, text: $scope.text})
+    $scope.CommentAuthor = '';
+    $scope.text = '';
   }
 })

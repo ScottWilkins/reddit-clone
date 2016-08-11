@@ -32,7 +32,7 @@ form {
 }
 .add-post input[type=text] {
   width: 100%;
-  border: solid blue 1px;
+
 }
 .add-post input[type=submit] {
   margin-top: 10px
@@ -62,4 +62,13 @@ form {
 }
 .byLine {
   align-self: flex-end;
+}
+input.ng-invalid {
+    border: solid red 1px
+}
+input.ng-valid {
+    border: solid blue 1px
+}
+.red {
+    border: solid red 1px;
 }
