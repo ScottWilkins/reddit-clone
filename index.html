@@ -1,63 +1,77 @@
 <!DOCTYPE html>
 <html ng-app="app">
-  <head>
+
+<head>
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
     <meta charset="utf-8">
     <title>readit</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <div ng-controller="MainController" class="container">
-      <header>
-        <h1 class="title">Reddit Clone</h1>
-        <button type="button" ng-click="newPost()">+submit post</button>
-        <input type="text" ng-model="search" placeholder="Search">
-        <select ng-model="sort.selection">
-          <option value="">sort by votes</option>
-          <option value="votes">votes</option>
-          <option value="date">date</option>
-          <option value="title">title</option>
-        </select>
-      </header>
-      <div class="content">
-        <section class="add-post">
-          <form ng-submit="addPost()" ng-show="showNewPost">
-                      <h5>Title</h5>
-                      <input name="title" type="text" ng-model="title" required placeholder="title">
-                      <h5>Author</h5>
-                      <input name="author" type="text" ng-model="author" required placeholder="author">
-                      <h5>Image URL</h5>
-                      <input name="image" type="text" ng-model="image" required placeholder="image URL">
-                      <h5>Description</h5>
-                      <input name="description" type="text" ng-model="description" required placeholder="description">
-                      <input type="submit" value="Submit">
-          </form>
-        </section>
-        <section class="posts">
-          <div class="post"  ng-repeat-start="post in content">
-            <img class="img" ng-src={{post.image}} alt="awesome pic" />
-            <div class="post-text">
-              <p class="post-title">{{post.title}}| <i class="fa fa-arrow-up"></i> <i class="fa fa-arrow-down"></i> 0</p>
-              <p class="byLine">By {{post.author}}</p>
-              <p>{{post.description}}</p>
-              <p><i class="fa fa-calendar"></i> <time am-time-ago="{{time}}"></time> | <i class="fa fa-comment"></i> <span ng-click="commentShow()">comment</span> | <i class="fa fa-pencil"></i> <span ng-click="addCommentShow()">add comment</span></p>
-              <form class="comment-form" ng-submit="addComment()" ng-show="showCommentForm">
-                          <h5>Author</h5>
-                          <input name="commentAuthor" type="text" ng-model="commentAuthor" required placeholder="Author">
-                          <h5>Text</h5>
-                          <input name="Text" type="text" ng-model="text" required placeholder="Text">
-                          <input type="submit" value="Submit">
-              </form>
-            </div>
-          </div>
-          <a  ng-repeat-end></a>
-        </section>
-      </div>
+        <header>
+            <h1 class="title">Reddit Clone</h1>
+            <button type="button" ng-click="newPost()">+submit post</button>
+            <input type="text" ng-model="search" placeholder="Search">
+            <select ng-model="choice">
+                <option value="">sort by votes</option>
+                <option value="votes">votes</option>
+                <option value="date">date</option>
+                <option value="title">title</option>
+            </select>
+        </header>
+        <div class="content">
+            <section class="add-post">
+                <form ng-submit="addPost()" ng-show="showNewPost">
+                    <h5>Title</h5>
+                    <input name="title" type="text" ng-model="title" required placeholder="title">
+                    <h5>Author</h5>
+                    <input name="author" type="text" ng-model="author" required placeholder="author">
+                    <h5>Image URL</h5>
+                    <input name="image" type="text" ng-model="image" required placeholder="image URL">
+                    <h5>Description</h5>
+                    <input name="description" type="text" ng-model="description" required placeholder="description">
+                    <input type="submit" value="Submit">
+                </form>
+            </section>
+            <section class="posts">
+                <div class="post" ng-repeat="post in content | orderBy:choice | filter:search">
+                    <img class="img" ng-src={{post.image}} alt="awesome pic" />
+                    <div class="post-text">
+                        <p class="post-title">{{post.title}}| <i class="fa fa-arrow-up" ng-click="upvote()"></i> <i class="fa fa-arrow-down"ng-click="downvote()"></i> {{post.votes}}</p>
+                        <p class="byLine">By {{post.author}}</p>
+                        <p>{{post.description}}</p>
+                        <p><i class="fa fa-calendar"></i>
+                            <time am-time-ago="{{time}}"></time> | <i class="fa fa-comment"></i> <span ng-click="commentShow()">
+
+                <ng-pluralize count="post.comments.length" when="{'1': '{{post.comments.length}} comment',
+                     'other': '{{post.comments.length}} comments',
+                     }">
+        </ng-pluralize>
+
+        </span> | <i class="fa fa-pencil"></i> <span ng-click="addCommentShow()">add comment</span></p>
+                        <form class="comment-form" ng-submit="addComment()" ng-show="showCommentForm">
+                            <h5>Author</h5>
+                            <input name="commentAuthor" type="text" ng-model="commentAuthor" required placeholder="Author">
+                            <h5>Text</h5>
+                            <input name="Text" type="text" ng-model="text" required placeholder="Text">
+                            <input type="submit" value="Submit">
+                        </form>
+                        <section class="comments" ng-show="showComments" ng-repeat="comment in post.comments">
+                            <p>{{comment.author}}</p>
+                            <p>{{comment.text}}</p>
+                        </section>
+                    </div>
+                </div>
+            </section>
+        </div>
 
     </div>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
     <script type="text/javascript" src="controllers.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular-moment/0.9.0/angular-moment.min.js"></script>
-  </body>
+</body>
+
 </html>
