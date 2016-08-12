@@ -40,8 +40,8 @@
               <p class="post-title">{{post.title}}| <i class="fa fa-arrow-up"></i> <i class="fa fa-arrow-down"></i> 0</p>
               <p class="byLine">By {{post.author}}</p>
               <p>{{post.description}}</p>
-              <p><i class="fa fa-calendar"></i> <time am-time-ago="{{time}}"></time> | <i class="fa fa-comment"></i> comment | <i class="fa fa-pencil"></i> <span ng-click="addCommentShow()">add comment</span></p>
-              <form ng-submit="addComment()" ng-show="showCommentForm">
+              <p><i class="fa fa-calendar"></i> <time am-time-ago="{{time}}"></time> | <i class="fa fa-comment"></i> <span ng-click="commentShow()">comment</span> | <i class="fa fa-pencil"></i> <span ng-click="addCommentShow()">add comment</span></p>
+              <form class="comment-form" ng-submit="addComment()" ng-show="showCommentForm">
                           <h5>Author</h5>
                           <input name="commentAuthor" type="text" ng-model="commentAuthor" required placeholder="Author">
                           <h5>Text</h5>
