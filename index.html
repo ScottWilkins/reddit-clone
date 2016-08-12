@@ -9,15 +9,15 @@
 </head>
 
 <body>
-    <div ng-controller="MainController" class="container">
+    <div ng-controller="MainController" class="container" ng-cloak>
         <header>
             <h1 class="title">Reddit Clone</h1>
             <button type="button" ng-click="newPost()">+submit post</button>
             <input type="text" ng-model="search" placeholder="Search">
             <select ng-model="choice">
                 <option value="">--sort by--</option>
-                <option value="votes" selected>votes</option>
-                <option value="date">date</option>
+                <option value="-votes" selected>votes</option>
+                <option value="-time">time</option>
                 <option value="title">title</option>
             </select>
         </header>
@@ -43,7 +43,7 @@
                         <p class="byLine">By {{post.author}}</p>
                         <p>{{post.description}}</p>
                         <p><i class="fa fa-calendar"></i>
-                            <time am-time-ago="{{time}}"></time> | <i class="fa fa-comment"></i> <span ng-click="commentShow()">
+                            <time am-time-ago="{{post.time}}"></time> | <i class="fa fa-comment"></i> <span ng-click="commentShow()">
 
                 <ng-pluralize count="post.comments.length" when="{'1': '{{post.comments.length}} comment',
                      'other': '{{post.comments.length}} comments',
@@ -59,7 +59,7 @@
                             <input type="submit" value="Submit">
                         </form>
                         <section class="comments" ng-show="showComments" ng-repeat="comment in post.comments">
-                            <p>{{comment.author}}</p>
+                            <p>User: {{comment.author}}</p>
                             <p>{{comment.text}}</p>
                         </section>
                     </div>
@@ -68,9 +68,9 @@
         </div>
 
     </div>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js"></script>
     <script type="text/javascript" src="controllers.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-animate.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-animate.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular-moment/0.9.0/angular-moment.min.js"></script>
 </body>

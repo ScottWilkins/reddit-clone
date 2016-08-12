@@ -1,4 +1,4 @@
-var app = angular.module('app', ['angularMoment']);
+var app = angular.module('app', ['angularMoment','ngAnimate']);
 
 app.controller('MainController', function($scope) {
   $scope.showComments = false;
@@ -10,7 +10,7 @@ app.controller('MainController', function($scope) {
     image: "http://images.medicaldaily.com/sites/medicaldaily.com/files/styles/headline/public/2014/01/25/shutterstock128088629.jpg",
     description: "forgot my stupid phone today",
     votes: 0,
-    time: '2016-08-12T03:51:07.919Z',
+    time: "'2016-08-12T04:42:31.926Z'",
     comments: [{author: "garth67", text:"that sucks."},{author: "j_ralpho", text:"dummy!"}]},
 
     {title: "olive is dumb",
@@ -18,7 +18,7 @@ app.controller('MainController', function($scope) {
     image: "https://upload.wikimedia.org/wikipedia/commons/4/4c/Blackcat-Lilith.jpg",
     description: "i am dumb",
     votes: 323,
-    time: '2016-08-12T03:51:07.919Z',
+    time: "'2016-07-12T04:42:31.926Z'",
     comments: [{author: "beans", text:"she's so dumb!"},{author: "jerri", text:"i love it!"}]},
 
     {title: "totes mcGotes",
@@ -26,7 +26,7 @@ app.controller('MainController', function($scope) {
     image: "https://s-media-cache-ak0.pinimg.com/564x/dd/b9/e8/ddb9e80da0c5cea3843b06bcbccee264.jpg",
     description: "picture's worth a thousand words",
     votes: 5,
-    time: '2016-08-12T04:42:31.926Z',
+    time: "'2016-08-12T04:42:31.926Z'",
     comments: [{author: "gilfoil", text:"wot?"}]},
   ]
 
