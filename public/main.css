@@ -21,7 +21,7 @@ header > button, header > input{
   margin-right: 9px
 }
 form {
-  color: #777
+  color: #eee;
 }
 .content {
   display: flex;
@@ -40,10 +40,11 @@ form {
 }
 .post {
   display: flex;
-  background-color: #eee;
+  background-color: #111;
   width: 100%;
   margin: 10px;
   min-height: 220px;
+
 }
 .img {
   width:30%;
@@ -55,7 +56,7 @@ form {
   width: 90%;
 }
 .post-text {
-  color: #555;
+  color: #eee;
   width: 75%;
   display: flex;
   justify-content: space-between;

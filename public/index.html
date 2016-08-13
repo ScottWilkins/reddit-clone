@@ -38,7 +38,7 @@
                 <div class="post" ng-repeat="post in content | orderBy:choice | filter:search">
                     <img class="img" ng-src={{post.image}} alt="awesome pic" />
                     <div class="post-text">
-                        <p class="post-title">{{post.title}}| <i class="fa fa-arrow-up" ng-click="upvote()"></i> <i class="fa fa-arrow-down"ng-click="downvote()"></i> {{post.votes}}</p>
+                        <p class="post-title">{{post.title}}| <i class="fa fa-hand-o-up" ng-click="upvote()"></i> <i class="	fa fa-hand-o-down"ng-click="downvote()"></i> {{post.votes}}</p>
                         <p class="byLine">By {{post.author}}</p>
                         <p>{{post.description}}</p>
                         <p><i class="fa fa-calendar"></i>
